@@ -1,43 +1,40 @@
 package LinkedLIst_DataStructure;
+
+import java.util.Arrays;
+
 public class Operation {
-	public static StackQueue addElement() {
-		StackQueue stacklist = new StackQueue();
-		stacklist.push(70);
-		stacklist.push(30);
-		stacklist.push(56);
+	public static void main(String[] args) {
+        String[] arr = {"Rajendra", "Sushant", "Megha", "Raghul", "Manu"};
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
+        String x = "Sushant";
+        int result = binarySearch(arr, x);
 
-		stacklist.display();
-		return stacklist;
-	}
+        if (result == -1)
+            System.out.println("Element not present");
+        else
+            System.out.println("Element found at "
+                    + "index " + result);
+    }
 
-	public static void peek() {
-		StackQueue stacklist = new StackQueue();
-		stacklist.push(70);
-		stacklist.push(30);
-		stacklist.push(56);
-		stacklist.peek();
-	}
+    static int binarySearch(String[] arr, String x) {
+        int l = 0, r = arr.length - 1;
+        while (l <= r) {
+            int m = l + (r - l) / 2;
+            int res = x.compareTo(arr[m]);
+            if (res == 0)
+                return m;
+            if (res > 0)
+                l = m + 1;
+            else
+                r = m - 1;
+        }
 
-	public static void pop() {
-		System.out.println(" Before Pop:");
-		StackQueue stacklist = addElement();
-		stacklist.poptillend();
-		System.out.println(" After Pop:");
-		stacklist.display();
-	}
+        return -1;
+    }
 
-	public static void queueElement() {
-		StackQueue stacklist = new StackQueue();
-		stacklist.queue(56);
-		stacklist.queue(30);
-		stacklist.queue(70);
-
-		stacklist.display();
-		stacklist.peek();
-	}
-
-	public static void dequeueElement() {
-		Operation.queueElement();
-		Operation.pop();
+	public static void addElement() {
+		
+		
 	}
 }

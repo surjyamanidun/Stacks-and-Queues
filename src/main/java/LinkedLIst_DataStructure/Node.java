@@ -1,7 +1,6 @@
 package LinkedLIst_DataStructure;
 
 public class Node {
-
 	public int data;
 	public Node next;
 
